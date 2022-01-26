@@ -8,7 +8,16 @@ class ApplicationController < Sinatra::Base
 
   get "/recipes" do
     # Recipe.all.to_json(include: :ingredients)
-    Recipe.all.to_json(include: { ingredients: { only: [:name, :is_garnish]}} )
+    # Recipe.all.to_json(include: { ingredients: { only: [:name, :is_garnish]}} )
+    
+    recipes = Recipe.all.map(&:attributes)
+    
+    recipes.map do |r|
+      r["measurements"] = JSON.parse(r["measurements"])
+      r["instructions"] = JSON.parse(r["instructions"])
+    end
+
+    recipes.to_json(include: { ingredients: { only: [:name, :is_garnish] }})
   end
 
   get "/ingredients" do
