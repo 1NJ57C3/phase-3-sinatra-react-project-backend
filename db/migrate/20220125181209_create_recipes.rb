@@ -6,7 +6,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.boolean :is_heated
       t.string :prep_time
       t.string :measurements
-      t.string :instructions
+      t.text :instructions
     end
   end
 end

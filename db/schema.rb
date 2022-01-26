@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_01_26_083716) do
     t.boolean "is_heated"
     t.string "prep_time"
     t.string "measurements"
-    t.string "instructions"
+    t.text "instructions"
     t.string "source"
     t.string "image"
   end
