@@ -42,7 +42,7 @@ Ingredient.create(name: "whole coffee beans", is_garnish: true)
 
 puts "😴 Waking up baristas..."
 
-Recipe.create(name: "mint mojito", prep_type: "fine", is_heated: false, prep_time:"10 min", measurements: ["16 oz total", "", "1-2 tbs", ""],
+Recipe.create(name: "Mint Mojito", prep_type: "fine", is_heated: false, prep_time:"10 min", measurements: ["16 oz total", "", "1-2 tbs", ""],
     instructions: [
         "Place a small pillow of mints leaves WITH the stems still attached in the bottom of the cup. Most of the mint flavor comes from the stems, not the leaves.",
 
