@@ -3,7 +3,17 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    { message: "The endpoint you want is actually \"/recipes\". :grimacing::smirk:" }.to_json
   end
 
+  get "/recipes" do
+    # Recipe.all.to_json(include: :ingredients)
+    Recipe.all.to_json(include: { ingredients: { only: [:name, :is_garnish]}} )
+  end
+
+  get "/ingredients" do
+    Ingredient.all.to_json
+  end
+  
+  # Courtesy of Grant: .attributes.to_json # Converts class instance to hashes
 end
