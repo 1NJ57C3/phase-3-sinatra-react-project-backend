@@ -42,7 +42,7 @@ Ingredient.create(name: "whole coffee beans", is_garnish: true)
 
 puts "😴 Waking up baristas..."
 
-Recipe.create(name: "mint mojito", prep_type: "fine", is_heated: false, prep_time:"10 min", measurements: ["16 oz total", "", "1-2 tbs", ""],
+Recipe.create(name: "mint mojito", prep_type: "fine", is_heated: false, prep_time:"10 min",
     instructions: [
         "Place a small pillow of mints leaves WITH the stems still attached in the bottom of the cup. Most of the mint flavor comes from the stems, not the leaves.",
 
@@ -58,7 +58,7 @@ Recipe.create(name: "mint mojito", prep_type: "fine", is_heated: false, prep_tim
     image: nil
 )
 
-Recipe.create(name: "white chocolate mocha", prep_type: "espresso", is_heated: true, prep_time: "3 minutes", measurements: ["4 Tbsp", "1 shot", "1 cup", ""],
+Recipe.create(name: "white chocolate mocha", prep_type: "espresso", is_heated: true, prep_time: "3 minutes",
     instructions: [
         "Heat up white chocolate chips on low heat until softened.",
         "Prepare 1 shot of espresso and pour into a mug (1 shot = 1 oz).",
@@ -73,10 +73,10 @@ Recipe.create(name: "white chocolate mocha", prep_type: "espresso", is_heated: t
     image: "https://athome.starbucks.com/sites/default/files/styles/recipe_xlarge_normal/public/2021-07/WhiteChocolateMocha_Recipe.jpg?h=cf77c377&itok=C62SMeLC"
 )
 
-Recipe.create(name: "espresso martini", prep_type: "espresso", is_heated: false, prep_time: "5 minutes", measurements: ["1 shot", "4 Tbsp", "2 Tbsp", "3"],
+Recipe.create(name: "espresso martini", prep_type: "espresso", is_heated: false, prep_time: "5 minutes",
     instructions: [
         "Prepare 1 shot of Starbucks® Espresso Roast coffee and let cool before prepping the cocktail.",
-        "Place the vodka, coffee liqueur and espresso in a cocktail shaker with ice.​",
+        "Place the vodka, coffee liqueur and espresso in a cocktail shaker with ice.",
         "Shake vigorously 10 times, then strain briskly into a cocktail glass.",
         "Garnish with 3 coffee beans and serve immediately.",
     ],
@@ -86,19 +86,19 @@ Recipe.create(name: "espresso martini", prep_type: "espresso", is_heated: false,
 
 puts "🥱 Ugh... Why do I keep getting stuck with the morning shift?"
 
-Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "coffee"))
+Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "coffee"), measurements: "16 oz total")
 Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "mint leaves", is_garnish: false))
-Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "brown sugar"))
+Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "brown sugar"), measurements: "1-2 tbs")
 Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "mint leaves", is_garnish: true))
 
-Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "white chocolate chips"))
-Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "espresso"))
-Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "2% milk"))
+Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "white chocolate chips"), measurements: "4 Tbsp")
+Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "espresso"), measurements: "1 shot")
+Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "2% milk"), measurements: "1 cup")
 Drink.create(recipe: Recipe.second, ingredient: Ingredient.find_by(name: "whipped cream"))
 
-Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "espresso"))
-Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "vodka"))
-Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "coffee liqueur"))
-Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "whole coffee beans"))
+Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "espresso"), measurements: "1 shot")
+Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "vodka"), measurements: "4 Tbsp")
+Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "coffee liqueur"), measurements: "2 Tbsp")
+Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "whole coffee beans"), measurements: "3")
 
 puts "☕ All done. Enjoy!"
