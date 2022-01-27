@@ -9,12 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/recipes" do
-    # Recipe.all.to_json(
-    #   include: [
-    #     {ingredients: { only: [:name, :is_garnish]}},
-    #     {drinks: { only: [:measurements]}}
-    #   ]
-    # )
+    # Recipe.all.to_json( include: [ {ingredients: { only: [:name, :is_garnish]}}, {drinks: { only: [:measurements]}} ] )
 
     recipes = Recipe.all.map do |r|
       ingredients = r.ingredients.map(&:attributes)
@@ -24,10 +19,29 @@ class ApplicationController < Sinatra::Base
 
     recipes.map do |r|
     #   # r["measurements"] = JSON.parse(r["measurements"])
-      r["instructions"] = JSON.parse(r["instructions"])
+      r["instructions"].class == String ? r["instructions"] = JSON.parse(r["instructions"]) : nil
     end
 
     recipes.to_json
+  end
+
+  post "/recipes" do
+    r = Recipe.create(
+      name: params[:name],
+      prep_type: params[:prep_type],
+      is_heated: params[:is_heated],
+      prep_time: params[:prep_time],
+      instructions: params[:instructions],
+      source: params[:source],
+      image: params[:image]
+    )
+    # binding.pry
+    params[:ingredients].map do |i|
+      Drink.create(
+        recipe: r,
+        ingredient: Ingredient.find_or_create_by(name: i[:name], is_garnish: i[:is_garnish], measurements: i[:measurements])
+      )
+    end
   end
 
   get "/ingredients" do
