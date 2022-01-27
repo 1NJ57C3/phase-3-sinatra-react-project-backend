@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_26_083716) do
+ActiveRecord::Schema.define(version: 2022_01_27_072020) do
 
   create_table "drinks", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
+    t.string "measurements"
     t.index ["ingredient_id"], name: "index_drinks_on_ingredient_id"
     t.index ["recipe_id"], name: "index_drinks_on_recipe_id"
   end
@@ -29,8 +30,7 @@ ActiveRecord::Schema.define(version: 2022_01_26_083716) do
     t.string "prep_type"
     t.boolean "is_heated"
     t.string "prep_time"
-    t.string "measurements"
-    t.text "instructions"
+    t.string "instructions"
     t.string "source"
     t.string "image"
   end
