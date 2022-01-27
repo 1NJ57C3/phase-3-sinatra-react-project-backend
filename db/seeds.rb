@@ -58,7 +58,7 @@ Recipe.create(name: "mint mojito", prep_type: "fine", is_heated: false, prep_tim
     image: nil
 )
 
-Recipe.create(name: "White Chocolate Mocha", prep_type: "espresso", is_heated: true, prep_time: "3 minutes", measurements: ["4 Tbsp", "1 shot", "1 cup", ""],
+Recipe.create(name: "white chocolate mocha", prep_type: "espresso", is_heated: true, prep_time: "3 minutes", measurements: ["4 Tbsp", "1 shot", "1 cup", ""],
     instructions: [
         "Heat up white chocolate chips on low heat until softened.",
         "Prepare 1 shot of espresso and pour into a mug (1 shot = 1 oz).",
@@ -73,13 +73,12 @@ Recipe.create(name: "White Chocolate Mocha", prep_type: "espresso", is_heated: t
     image: "https://athome.starbucks.com/sites/default/files/styles/recipe_xlarge_normal/public/2021-07/WhiteChocolateMocha_Recipe.jpg?h=cf77c377&itok=C62SMeLC"
 )
 
-Recipe.create(name: "Espresso Martini", prep_type: "espresso", is_heated: false, prep_time: "5 minutes", measurements: ["1 shot", "4 Tbsp", "2 Tbsp", "3"],
+Recipe.create(name: "espresso martini", prep_type: "espresso", is_heated: false, prep_time: "5 minutes", measurements: ["1 shot", "4 Tbsp", "2 Tbsp", "3"],
     instructions: [
         "Prepare 1 shot of Starbucks® Espresso Roast coffee and let cool before prepping the cocktail.",
         "Place the vodka, coffee liqueur and espresso in a cocktail shaker with ice.​",
         "Shake vigorously 10 times, then strain briskly into a cocktail glass.",
         "Garnish with 3 coffee beans and serve immediately.",
-        "<small>(U.S. Only) Must be 21+. Enjoy responsibly.</small>"
     ],
     source: "https://athome.starbucks.com/recipe/espresso-martini",
     image: "https://athome.starbucks.com/sites/default/files/styles/recipe_xlarge_normal/public/2021-09/EspressoMartini_Web_New_Header_2880x1660_2.jpg?h=cf77c377&itok=pVRV0DGz"
