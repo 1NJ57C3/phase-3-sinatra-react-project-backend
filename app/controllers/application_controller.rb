@@ -7,22 +7,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/recipes" do
-    # Recipe.all.to_json(include: :ingredients)
-    # Recipe.all.to_json(include: { ingredients: { only: [:name, :is_garnish]}} )
-    
-    recipes = Recipe.all.map(&:attributes)
-    
+    recipes = Recipe.all.map.with_index do |r, i|
+      r.attributes.merge({"ingredients" => r.ingredients.map(&:attributes)})
+    end
     recipes.map do |r|
       r["measurements"] = JSON.parse(r["measurements"])
       r["instructions"] = JSON.parse(r["instructions"])
     end
-
-    recipes.to_json(include: { ingredients: { only: [:name, :is_garnish] }})
+    recipes.to_json
   end
 
   get "/ingredients" do
     Ingredient.all.to_json
   end
-  
-  # Courtesy of Grant: .attributes.to_json # Converts class instance to hashes
 end
