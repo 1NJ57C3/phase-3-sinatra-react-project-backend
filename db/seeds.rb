@@ -1,6 +1,7 @@
 puts "🛒 Going Shopping..."
 Ingredient.create(name: "coffee", is_garnish: false)
 Ingredient.create(name: "espresso", is_garnish: false)
+(name: "chai spices", is_garnish: false
 
 Ingredient.create(name: "ice cream", is_garnish: false)
 Ingredient.create(name: "whole milk", is_garnish: false)
@@ -124,9 +125,9 @@ Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "whole c
 Drink.create(recipe: Recipe.fourth, ingredient: Ingredient.find_by(name: "espresso"), measurements: "2 shots")
 Drink.create(recipe: Recipe.fourth, ingredient: Ingredient.find_by(name: "milk"), measurements: "4 oz")
 
-Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by(name: "espresso", measurements: "4 oz"))
-Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by_or_create_by(name: "chai spices"), measurements: "1 tsp")
-Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by_or_create_by(name: "water"), measurements: "1 cup water")
-Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by_or_create_by(name: "milk"), measurements: "1/2 cup milk")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by(name: "espresso"), measurements: "4 oz")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by(name: "chai spices"), measurements: "1 tsp")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by(name: "water"), measurements: "1 cup water")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by(name: "milk"), measurements: "1/2 cup milk")
 
 puts "☕ All done. Enjoy!"
