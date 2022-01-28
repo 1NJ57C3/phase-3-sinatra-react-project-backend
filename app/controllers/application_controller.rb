@@ -44,6 +44,12 @@ class ApplicationController < Sinatra::Base
         measurements: i[:measurements]
       )
     end
+    recipe = Recipe.last
+    ingredients = Recipe.last.ingredients.map(&:attributes)
+    ingredients.map.with_index{|i,idx| i[:measurements] = recipe.drinks[idx].measurements}
+    recipe = recipe.attributes.merge( {"ingredients" => ingredients} )
+    recipe["instructions"].class == String ? recipe["instructions"] = JSON.parse(recipe["instructions"]) : nil
+    recipe.to_json
   end
 
   patch "/recipes/:id" do
@@ -63,10 +69,17 @@ class ApplicationController < Sinatra::Base
         measurements: i[:measurements]
       )
     end
+    recipe = Recipe.last
+    ingredients = Recipe.last.ingredients.map(&:attributes)
+    ingredients.map.with_index{|i,idx| i[:measurements] = recipe.drinks[idx].measurements}
+    recipe = recipe.attributes.merge( {"ingredients" => ingredients} )
+    recipe["instructions"].class == String ? recipe["instructions"] = JSON.parse(recipe["instructions"]) : nil
+    recipe.to_json
   end
 
   delete "/recipes/:id" do
-    Recipe.find(params[:id]).delete
+    r = Recipe.find(params[:id]).delete
+    r.to_json
   end
 
   get "/ingredients" do
