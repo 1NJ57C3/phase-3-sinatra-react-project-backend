@@ -84,6 +84,26 @@ Recipe.create(name: "espresso martini", prep_type: "espresso", is_heated: false,
     image: "https://athome.starbucks.com/sites/default/files/styles/recipe_xlarge_normal/public/2021-09/EspressoMartini_Web_New_Header_2880x1660_2.jpg?h=cf77c377&itok=pVRV0DGz"
 )
 
+Recipe.create(name: "latte", prep_type: "espresso", is_heated: true, prep_time: "5 minutes",
+    instructions: [
+        "Make the espresso using an espresso machine, espresso maker, or Aeropress.",
+        "Steam the milk (espresso machine method): Use the notes in the section above to steam the milk and create microfoam.",
+        "Overall, experiment to find the method that’s right for you. Everyone has different equipment and different desires for their latte. Play with the method until you find what’s right for you!",
+    ],
+    source: "https://www.acouplecooks.com/how-to-make-a-latte/",
+    image: "https://www.acouplecooks.com/wp-content/uploads/2020/09/Chail-Latte-004.jpg"
+)
+
+Recipe.create(name: "dirty chai latte", prep_type: "espresso", is_heated: true, prep_time: "5 minutes",
+    instructions: [
+        "Make the espresso. Use your favorite method! ",
+        "Make the masala chai. Next you’ll make the masala chai, or spiced milk tea. Our method takes only a few minutes using a homemade spice blend.",
+        "Froth the milk. The last step is frothing the milk!",
+    ],
+    source: "https://www.acouplecooks.com/dirty-chai-latte/",
+    image: "https://www.acouplecooks.com/wp-content/uploads/2020/09/Dirty-Chai-Latte-007.jpg"
+)
+
 puts "🥱 Ugh... Why do I keep getting stuck with the morning shift?"
 
 Drink.create(recipe: Recipe.first, ingredient: Ingredient.find_by(name: "coffee"), measurements: "16 oz total")
@@ -100,5 +120,13 @@ Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "espress
 Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "vodka"), measurements: "4 Tbsp")
 Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "coffee liqueur"), measurements: "2 Tbsp")
 Drink.create(recipe: Recipe.third, ingredient: Ingredient.find_by(name: "whole coffee beans"), measurements: "3")
+
+Drink.create(recipe: Recipe.fourth, ingredient: Ingredient.find_by(name: "espresso"), measurements: "2 shots")
+Drink.create(recipe: Recipe.fourth, ingredient: Ingredient.find_by(name: "milk"), measurements: "4 oz")
+
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by(name: "espresso", measurements: "4 oz")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by_or_create_by(name: "chai spices"), measurements: "1 tsp")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by_or_create_by(name: "water"), measurements: "1 cup water")
+Drink.create(recipe: Recipe.fifth, ingredient: Ingredient.find_by_or_create_by(name: "milk"), measurements: "1/2 cup milk")
 
 puts "☕ All done. Enjoy!"

@@ -85,8 +85,4 @@ class ApplicationController < Sinatra::Base
   get "/ingredients" do
     Ingredient.all.to_json
   end
-
-  get "/recipes" do
-    Recipe.all.find_by(prep_type: 'espresso')
-  end
 end
